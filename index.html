@@ -7,42 +7,84 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial;
-  background: #f4f6f8;
+  font-family: 'Segoe UI', Arial;
+  color: #333;
 }
 
-header {
-  background: linear-gradient(135deg, #1f2d3d, #3a506b);
+/* NAV */
+nav {
+  background: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  background: url('banner.jpg') center/cover;
+  height: 90vh;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 80px 20px;
 }
 
-h1 {
-  font-size: 45px;
-  margin: 0;
+.hero h1 {
+  font-size: 50px;
 }
 
+/* SECCIONES */
 section {
   padding: 60px 20px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
 }
 
 h2 {
-  color: #1f2d3d;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
+/* CARDS */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #f4f6f8;
+  padding: 20px;
+  width: 260px;
+  border-radius: 10px;
+}
+
+/* IMÁGENES */
+.img-section img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* BOTÓN */
 .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 25px;
   background: #0077b6;
   color: white;
+  padding: 12px 25px;
   text-decoration: none;
   border-radius: 5px;
 }
 
+/* FOOTER */
 footer {
   background: #1f2d3d;
   color: white;
@@ -54,31 +96,61 @@ footer {
 
 <body>
 
-<header>
-<img src="unnamed.png" alt="Logo" style="width:120px; margin-bottom:20px;">
-<h1>4Humans Consulting</h1>
-<p>Conectamos talento joven con oportunidades reales</p>
-<a href="mailto:tuemail@gmail.com" class="btn">Contactar</a>
-</header>
+<nav>
+  <strong>4Humans</strong>
+  <div>
+    <a href="#quienes">Quiénes somos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
 
-<section>
+<div class="hero">
+  <div>
+    <h1>4Humans Consulting</h1>
+    <p>Ecosistema digital de empleabilidad juvenil</p>
+    <a href="#contacto" class="btn">Contactar</a>
+  </div>
+</div>
+
+<section id="quienes">
 <h2>Quiénes somos</h2>
 <p>
-4Humans es una consultora de recursos humanos enfocada en la empleabilidad juvenil en sectores operativos como hostelería, eventos y servicios.
+4Humans es una consultora de recursos humanos que conecta talento joven con oportunidades laborales reales en sectores operativos como hostelería, eventos y servicios. 
+Combinamos tecnología, formación y enfoque humano.
 </p>
 </section>
 
-<section>
+<section id="servicios">
 <h2>Servicios</h2>
-<p>
-Selección de talento · Formación · Evaluación · Desarrollo profesional
+<div class="cards">
+<div class="card">Reclutamiento estratégico</div>
+<div class="card">Formación express</div>
+<div class="card">Evaluación 360º</div>
+<div class="card">Desarrollo de talento</div>
+</div>
+</section>
+
+<section class="img-section">
+<img src="servicios.jpg" alt="Servicios">
+</section>
+
+<section id="equipo">
+<h2>Equipo</h2>
+<p style="text-align:center;">
+Ariana Rojas · Aitana Piñón · Sofía Montero · Ana Sebastià
 </p>
 </section>
 
-<section>
-<h2>Propuesta de valor</h2>
-<p>
-Combinamos tecnología y enfoque humano para ofrecer soluciones ágiles, eficientes y adaptadas a cada empresa.
+<section class="img-section">
+<img src="equipo.jpg.png" alt="Equipo">
+</section>
+
+<section id="contacto">
+<h2>Contacto</h2>
+<p style="text-align:center;">
+Escríbenos: tuemail@gmail.com
 </p>
 </section>
 
