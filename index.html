@@ -9,58 +9,82 @@ body {
   margin: 0;
   font-family: 'Segoe UI', Arial;
   color: #333;
+  scroll-behavior: smooth;
 }
 
 /* NAV */
 nav {
   position: fixed;
   width: 100%;
-  background: white;
-  padding: 15px 30px;
+  background: rgba(255,255,255,0.95);
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   z-index: 1000;
 }
 
+nav .logo {
+  display: flex;
+  align-items: center;
+}
+
+nav img {
+  height: 40px;
+  margin-right: 10px;
+}
+
 nav a {
-  margin: 0 10px;
+  margin: 0 15px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00a8cc;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-              url('banner.jpg') center/cover;
   height: 100vh;
-  color: white;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('banner.jpg') center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: white;
 }
 
 .hero h1 {
-  font-size: 55px;
+  font-size: 60px;
 }
 
 .hero p {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .btn {
   background: #00a8cc;
-  padding: 12px 30px;
+  padding: 15px 35px;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  margin-top: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #0077b6;
 }
 
 /* SECCIONES */
 section {
-  padding: 80px 20px;
+  padding: 90px 20px;
   max-width: 1100px;
   margin: auto;
 }
@@ -68,9 +92,10 @@ section {
 h2 {
   text-align: center;
   margin-bottom: 40px;
+  font-size: 32px;
 }
 
-/* CARDS */
+/* SERVICIOS */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -82,19 +107,38 @@ h2 {
   background: white;
   padding: 25px;
   width: 260px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 
-/* IMÁGENES */
-.img-section img {
+/* BANNER INTERMEDIO */
+.banner {
+  background: url('servicios.jpg') center/cover;
+  height: 300px;
+  border-radius: 12px;
+}
+
+/* EQUIPO */
+.team img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
+}
+
+/* CTA */
+.cta {
+  background: linear-gradient(135deg, #00a8cc, #0077b6);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta h2 {
+  margin-bottom: 20px;
 }
 
 /* FOOTER */
@@ -110,7 +154,10 @@ footer {
 <body>
 
 <nav>
-  <strong>4Humans</strong>
+  <div class="logo">
+    <img src="unnamed.png" alt="Logo">
+    <strong>4Humans</strong>
+  </div>
   <div>
     <a href="#quienes">Quiénes somos</a>
     <a href="#servicios">Servicios</a>
@@ -129,9 +176,9 @@ footer {
 
 <section id="quienes">
 <h2>Quiénes somos</h2>
-<p>
-4Humans es un ecosistema digital de empleabilidad juvenil que conecta talento, tecnología y desarrollo profesional en sectores como hostelería, eventos y servicios. 
-Aportamos soluciones ágiles, humanas y profesionales para empresas y jóvenes.
+<p style="text-align:center;">
+Somos una consultora de recursos humanos especializada en empleabilidad juvenil en sectores operativos.
+Conectamos empresas con talento joven preparado, aportando soluciones ágiles, humanas y digitales.
 </p>
 </section>
 
@@ -141,29 +188,29 @@ Aportamos soluciones ágiles, humanas y profesionales para empresas y jóvenes.
 
 <div class="card">
 <h3>Reclutamiento</h3>
-<p>Selección basada en competencias.</p>
+<p>Selección basada en competencias y ajuste cultural.</p>
 </div>
 
 <div class="card">
 <h3>Formación</h3>
-<p>Microformaciones orientadas al empleo.</p>
+<p>Microformaciones enfocadas a empleabilidad real.</p>
 </div>
 
 <div class="card">
 <h3>Evaluación</h3>
-<p>Medición de desempeño real del trabajador.</p>
+<p>Medicion de desempeño real del trabajador.</p>
 </div>
 
 <div class="card">
 <h3>Desarrollo</h3>
-<p>Fidelización del talento.</p>
+<p>Fidelización y crecimiento del talento.</p>
 </div>
 
 </div>
 </section>
 
-<section class="img-section">
-<img src="servicios.jpg" alt="Servicios">
+<section>
+<div class="banner"></div>
 </section>
 
 <section id="equipo">
@@ -171,11 +218,15 @@ Aportamos soluciones ágiles, humanas y profesionales para empresas y jóvenes.
 <p style="text-align:center;">
 Ariana Rojas · Aitana Piñón · Sofía Montero · Ana Sebastià
 </p>
+<div class="team">
+<img src="equipo.jpg.png" alt="Equipo">
+</div>
 </section>
 
-<section class="img-section">
-<img src="equipo.jpg.png" alt="Equipo">
-</section>
+<div class="cta">
+<h2>¿Buscas talento o quieres trabajar con nosotros?</h2>
+<a href="mailto:tuemail@gmail.com" class="btn">Contáctanos</a>
+</div>
 
 <section id="contacto">
 <h2>Contacto</h2>
