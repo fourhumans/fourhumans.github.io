@@ -95,7 +95,7 @@ h2 {
   font-size: 32px;
 }
 
-/* SERVICIOS */
+/* CARDS */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -116,16 +116,10 @@ h2 {
   transform: translateY(-10px);
 }
 
-/* BANNER INTERMEDIO */
+/* BANNER */
 .banner {
   background: url('servicios.jpg') center/cover;
   height: 300px;
-  border-radius: 12px;
-}
-
-/* EQUIPO */
-.team img {
-  width: 100%;
   border-radius: 12px;
 }
 
@@ -137,11 +131,6 @@ h2 {
   padding: 80px 20px;
 }
 
-.cta h2 {
-  margin-bottom: 20px;
-}
-
-/* FOOTER */
 footer {
   background: #1f2d3d;
   color: white;
@@ -155,11 +144,12 @@ footer {
 
 <nav>
   <div class="logo">
-    <img src="unnamed.png" alt="Logo">
+    <img src="unnamed.png">
     <strong>4Humans</strong>
   </div>
   <div>
     <a href="#quienes">Quiénes somos</a>
+    <a href="#valor">Valor</a>
     <a href="#servicios">Servicios</a>
     <a href="#equipo">Equipo</a>
     <a href="#contacto">Contacto</a>
@@ -169,17 +159,27 @@ footer {
 <div class="hero">
   <div>
     <h1>4Humans Consulting</h1>
-    <p>Conectamos talento joven con oportunidades reales</p>
-    <a href="#contacto" class="btn">Contactar</a>
+    <p>Talento joven preparado para necesidades reales</p>
+    <a href="#contacto" class="btn">Trabaja con nosotros</a>
   </div>
 </div>
 
 <section id="quienes">
 <h2>Quiénes somos</h2>
 <p style="text-align:center;">
-Somos una consultora de recursos humanos especializada en empleabilidad juvenil en sectores operativos.
-Conectamos empresas con talento joven preparado, aportando soluciones ágiles, humanas y digitales.
+Somos una consultora de recursos humanos especializada en talento joven para sectores de alta rotación como hostelería, eventos y servicios. 
+No somos una ETT: diseñamos procesos, formamos talento y medimos impacto.
 </p>
+</section>
+
+<section id="valor">
+<h2>¿Por qué 4Humans?</h2>
+<div class="cards">
+<div class="card">Conectamos talento joven con oportunidades reales</div>
+<div class="card">Equipos ya formados y preparados</div>
+<div class="card">Procesos ágiles y digitales</div>
+<div class="card">Enfoque humano y profesional</div>
+</div>
 </section>
 
 <section id="servicios">
@@ -187,13 +187,13 @@ Conectamos empresas con talento joven preparado, aportando soluciones ágiles, h
 <div class="cards">
 
 <div class="card">
-<h3>Reclutamiento</h3>
-<p>Selección basada en competencias y ajuste cultural.</p>
+<h3>Reclutamiento estratégico</h3>
+<p>Selección ágil basada en competencias y ajuste cultural.</p>
 </div>
 
 <div class="card">
-<h3>Formación</h3>
-<p>Microformaciones enfocadas a empleabilidad real.</p>
+<h3>Formación express</h3>
+<p>Microformaciones que preparan al talento antes de trabajar.</p>
 </div>
 
 <div class="card">
@@ -203,7 +203,7 @@ Conectamos empresas con talento joven preparado, aportando soluciones ágiles, h
 
 <div class="card">
 <h3>Desarrollo</h3>
-<p>Fidelización y crecimiento del talento.</p>
+<p>Fidelización y progresión del talento joven.</p>
 </div>
 
 </div>
@@ -218,14 +218,12 @@ Conectamos empresas con talento joven preparado, aportando soluciones ágiles, h
 <p style="text-align:center;">
 Ariana Rojas · Aitana Piñón · Sofía Montero · Ana Sebastià
 </p>
-<div class="team">
-<img src="equipo.jpg.png" alt="Equipo">
-</div>
+<img src="equipo.jpg.png" style="width:100%; border-radius:12px;">
 </section>
 
 <div class="cta">
-<h2>¿Buscas talento o quieres trabajar con nosotros?</h2>
-<a href="mailto:tuemail@gmail.com" class="btn">Contáctanos</a>
+<h2>¿Necesitas personal o buscas trabajo?</h2>
+<a href="mailto:tuemail@gmail.com" class="btn">Contactar</a>
 </div>
 
 <section id="contacto">
@@ -236,7 +234,7 @@ Ariana Rojas · Aitana Piñón · Sofía Montero · Ana Sebastià
 </section>
 
 <footer>
-© 2026 4Humans Consulting · Todos los derechos reservados
+© 2026 4Humans Consulting
 </footer>
 
 </body>
