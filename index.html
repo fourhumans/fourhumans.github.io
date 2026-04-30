@@ -8,113 +8,120 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial;
-  color: #333;
-  scroll-behavior: smooth;
+  background: #f5f9fc;
+  color: #1f2d3d;
+  overflow-x: hidden;
 }
 
 /* NAV */
 nav {
-  position: fixed;
-  width: 100%;
-  background: rgba(255,255,255,0.95);
-  padding: 15px 40px;
+  background: #0a2540;
+  color: white;
+  padding: 15px 25px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  z-index: 1000;
 }
 
-nav a {
-  margin: 0 15px;
+.menu-btn {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* MENÚ */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background: #0a2540;
+  transition: 0.4s;
+  padding-top: 60px;
+}
+
+.menu a {
+  display: block;
+  padding: 18px;
+  color: white;
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
 }
 
-nav a:hover {
-  color: #00a8cc;
+.menu a:hover {
+  background: #0077b6;
+}
+
+/* PÁGINAS */
+.page {
+  display: none;
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+  animation: fade 0.5s;
+}
+
+.active { display: block; }
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 /* HERO */
 .hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('banner.jpg') center/cover;
+  height: 90vh;
+  background: linear-gradient(rgba(10,37,64,0.8), rgba(0,119,182,0.7)),
+              url('hero.jpg') center/cover;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
 }
 
-.hero h1 { font-size: 60px; }
-.hero p { font-size: 22px; }
-
+/* BOTONES */
 .btn {
   background: #00a8cc;
-  padding: 15px 30px;
+  padding: 12px 25px;
   color: white;
-  text-decoration: none;
   border-radius: 8px;
+  text-decoration: none;
   display: inline-block;
-  margin: 10px;
+  margin-top: 15px;
 }
 
-/* SECCIONES */
-section {
-  padding: 90px 20px;
-  max-width: 1100px;
-  margin: auto;
+.btn:hover {
+  background: #0077b6;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 40px;
+/* IMÁGENES SECCIÓN */
+.section-img {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 25px;
 }
 
 /* CARDS */
 .cards {
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
 }
 
 .card {
   background: white;
-  padding: 25px;
-  width: 260px;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-/* KPI */
-.kpis {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-}
-
-.kpis div {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-/* CTA */
-.cta {
-  background: linear-gradient(135deg, #00a8cc, #0077b6);
-  color: white;
-  text-align: center;
-  padding: 70px;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 /* FOOTER */
 footer {
-  background: #1f2d3d;
+  background: #0a2540;
   color: white;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 }
 </style>
 </head>
@@ -123,123 +130,95 @@ footer {
 
 <nav>
   <strong>4Humans</strong>
-  <div>
-    <a href="#quienes">Quiénes somos</a>
-    <a href="#modelo">Modelo</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#como">Cómo funciona</a>
-    <a href="#impacto">Impacto</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <h1>4Humans Consulting</h1>
-    <p>Conectamos talento joven con oportunidades reales</p>
-    <a href="#contacto" class="btn">Soy empresa</a>
-    <a href="#contacto" class="btn">Soy candidato</a>
+<div class="menu" id="menu">
+  <a onclick="showPage('home')">Inicio</a>
+  <a onclick="showPage('quienes')">Quiénes somos</a>
+  <a onclick="showPage('modelo')">Modelo</a>
+  <a onclick="showPage('servicios')">Servicios</a>
+  <a onclick="showPage('impacto')">Impacto</a>
+  <a onclick="showPage('contacto')">Contacto</a>
+</div>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div>
+      <h1>4Humans Consulting</h1>
+      <p>Conectamos talento joven con oportunidades reales</p>
+      <a onclick="showPage('contacto')" class="btn">Contactar</a>
+    </div>
   </div>
 </div>
 
 <!-- QUIENES -->
-<section id="quienes">
-<h2>Quiénes somos</h2>
-<p style="text-align:center;">
-4Humans es una consultora de recursos humanos centrada en talento joven.
-No solo conectamos personas con empleos, sino que creamos un ecosistema de empleabilidad basado en selección, formación, evaluación y desarrollo.
-</p>
-</section>
+<div id="quienes" class="page">
+  <h2>Quiénes somos</h2>
+  <p>
+    Somos una consultora que conecta talento joven con empresas,
+    creando un ecosistema de empleabilidad basado en formación, evaluación y desarrollo.
+  </p>
+  <img src="quienes.jpg" class="section-img">
+</div>
 
 <!-- MODELO -->
-<section id="modelo">
-<h2>Modelo de gestión</h2>
-<p style="text-align:center;">
-Trabajamos con un enfoque humano, digital y orientado al desarrollo.
-Actuamos como nexo entre jóvenes que buscan oportunidades y empresas que necesitan equipos ágiles.
-</p>
-
-<div class="cards">
-<div class="card">Enfoque humano</div>
-<div class="card">Empleabilidad juvenil</div>
-<div class="card">Profesionalidad</div>
-<div class="card">Adaptabilidad</div>
-<div class="card">Transparencia</div>
+<div id="modelo" class="page">
+  <h2>Modelo de gestión</h2>
+  <div class="cards">
+    <div class="card">Enfoque humano</div>
+    <div class="card">Talento joven</div>
+    <div class="card">Procesos digitales</div>
+    <div class="card">Adaptabilidad</div>
+  </div>
+  <img src="modelo.jpg" class="section-img">
 </div>
-</section>
 
 <!-- SERVICIOS -->
-<section id="servicios">
-<h2>Servicios</h2>
-<div class="cards">
-
-<div class="card">
-<h3>Reclutamiento estratégico</h3>
-<p>Selección por competencias y matching cultural.</p>
+<div id="servicios" class="page">
+  <h2>Servicios</h2>
+  <div class="cards">
+    <div class="card">Reclutamiento estratégico</div>
+    <div class="card">Formación express</div>
+    <div class="card">Evaluación 360º</div>
+    <div class="card">Desarrollo del talento</div>
+  </div>
+  <img src="servicios.jpg" class="section-img">
 </div>
-
-<div class="card">
-<h3>Formación express</h3>
-<p>Microformaciones para preparar talento antes de trabajar.</p>
-</div>
-
-<div class="card">
-<h3>Evaluación 360º</h3>
-<p>Medición del desempeño real tras cada servicio.</p>
-</div>
-
-<div class="card">
-<h3>Desarrollo y fidelización</h3>
-<p>Planes de crecimiento y progresión profesional.</p>
-</div>
-
-</div>
-</section>
-
-<!-- COMO FUNCIONA -->
-<section id="como">
-<h2>Cómo funciona</h2>
-<div class="cards">
-
-<div class="card">1. Registro en plataforma</div>
-<div class="card">2. Evaluación por competencias</div>
-<div class="card">3. Matching con empresas</div>
-<div class="card">4. Formación previa</div>
-<div class="card">5. Trabajo + evaluación</div>
-
-</div>
-</section>
 
 <!-- IMPACTO -->
-<section id="impacto">
-<h2>Impacto</h2>
-
-<div class="kpis">
-<div>+85%<br><span style="font-size:14px;">éxito selección</span></div>
-<div>< 5 días<br><span style="font-size:14px;">tiempo cobertura</span></div>
-<div>+60%<br><span style="font-size:14px;">talento recurrente</span></div>
-</div>
-
-</section>
-
-<!-- CTA -->
-<div class="cta">
-<h2>¿Buscas talento o quieres trabajar con nosotros?</h2>
-<a href="mailto:tuemail@gmail.com" class="btn">Contactar</a>
+<div id="impacto" class="page">
+  <h2>Impacto</h2>
+  <p>
+    +85% éxito en selección · <5 días cobertura · +60% talento recurrente
+  </p>
+  <img src="impacto.jpg" class="section-img">
 </div>
 
 <!-- CONTACTO -->
-<section id="contacto">
-<h2>Contacto</h2>
-<p style="text-align:center;">
-📩 tuemail@gmail.com
-</p>
-</section>
+<div id="contacto" class="page">
+  <h2>Contacto</h2>
+  <p>📩 tuemail@gmail.com</p>
+  <img src="contacto.jpg" class="section-img">
+</div>
 
 <footer>
-© 2026 4Humans Consulting · Todos los derechos reservados
+© 2026 4Humans Consulting
 </footer>
+
+<script>
+function toggleMenu() {
+  let menu = document.getElementById("menu");
+  menu.style.right = menu.style.right === "0px" ? "-260px" : "0px";
+}
+
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.getElementById("menu").style.right = "-260px";
+}
+</script>
 
 </body>
 </html>
