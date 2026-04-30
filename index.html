@@ -25,22 +25,11 @@ nav {
   z-index: 1000;
 }
 
-nav .logo {
-  display: flex;
-  align-items: center;
-}
-
-nav img {
-  height: 40px;
-  margin-right: 10px;
-}
-
 nav a {
   margin: 0 15px;
   text-decoration: none;
   color: #333;
   font-weight: bold;
-  transition: 0.3s;
 }
 
 nav a:hover {
@@ -59,27 +48,17 @@ nav a:hover {
   color: white;
 }
 
-.hero h1 {
-  font-size: 60px;
-}
-
-.hero p {
-  font-size: 24px;
-}
+.hero h1 { font-size: 60px; }
+.hero p { font-size: 22px; }
 
 .btn {
   background: #00a8cc;
-  padding: 15px 35px;
+  padding: 15px 30px;
   color: white;
   text-decoration: none;
   border-radius: 8px;
-  margin-top: 20px;
   display: inline-block;
-  font-weight: bold;
-}
-
-.btn:hover {
-  background: #0077b6;
+  margin: 10px;
 }
 
 /* SECCIONES */
@@ -92,7 +71,6 @@ section {
 h2 {
   text-align: center;
   margin-bottom: 40px;
-  font-size: 32px;
 }
 
 /* CARDS */
@@ -109,18 +87,18 @@ h2 {
   width: 260px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+/* KPI */
+.kpis {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
 }
 
-/* BANNER */
-.banner {
-  background: url('servicios.jpg') center/cover;
-  height: 300px;
-  border-radius: 12px;
+.kpis div {
+  font-size: 28px;
+  font-weight: bold;
 }
 
 /* CTA */
@@ -128,9 +106,10 @@ h2 {
   background: linear-gradient(135deg, #00a8cc, #0077b6);
   color: white;
   text-align: center;
-  padding: 80px 20px;
+  padding: 70px;
 }
 
+/* FOOTER */
 footer {
   background: #1f2d3d;
   color: white;
@@ -143,89 +122,114 @@ footer {
 <body>
 
 <nav>
-  <div class="logo">
-    <img src="unnamed.png">
-    <strong>4Humans</strong>
-  </div>
+  <strong>4Humans</strong>
   <div>
     <a href="#quienes">Quiénes somos</a>
-    <a href="#valor">Valor</a>
+    <a href="#modelo">Modelo</a>
     <a href="#servicios">Servicios</a>
-    <a href="#equipo">Equipo</a>
+    <a href="#como">Cómo funciona</a>
+    <a href="#impacto">Impacto</a>
     <a href="#contacto">Contacto</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div>
     <h1>4Humans Consulting</h1>
-    <p>Talento joven preparado para necesidades reales</p>
-    <a href="#contacto" class="btn">Trabaja con nosotros</a>
+    <p>Conectamos talento joven con oportunidades reales</p>
+    <a href="#contacto" class="btn">Soy empresa</a>
+    <a href="#contacto" class="btn">Soy candidato</a>
   </div>
 </div>
 
+<!-- QUIENES -->
 <section id="quienes">
 <h2>Quiénes somos</h2>
 <p style="text-align:center;">
-Somos una consultora de recursos humanos especializada en talento joven para sectores de alta rotación como hostelería, eventos y servicios. 
-No somos una ETT: diseñamos procesos, formamos talento y medimos impacto.
+4Humans es una consultora de recursos humanos centrada en talento joven.
+No solo conectamos personas con empleos, sino que creamos un ecosistema de empleabilidad basado en selección, formación, evaluación y desarrollo.
 </p>
 </section>
 
-<section id="valor">
-<h2>¿Por qué 4Humans?</h2>
+<!-- MODELO -->
+<section id="modelo">
+<h2>Modelo de gestión</h2>
+<p style="text-align:center;">
+Trabajamos con un enfoque humano, digital y orientado al desarrollo.
+Actuamos como nexo entre jóvenes que buscan oportunidades y empresas que necesitan equipos ágiles.
+</p>
+
 <div class="cards">
-<div class="card">Conectamos talento joven con oportunidades reales</div>
-<div class="card">Equipos ya formados y preparados</div>
-<div class="card">Procesos ágiles y digitales</div>
-<div class="card">Enfoque humano y profesional</div>
+<div class="card">Enfoque humano</div>
+<div class="card">Empleabilidad juvenil</div>
+<div class="card">Profesionalidad</div>
+<div class="card">Adaptabilidad</div>
+<div class="card">Transparencia</div>
 </div>
 </section>
 
+<!-- SERVICIOS -->
 <section id="servicios">
 <h2>Servicios</h2>
 <div class="cards">
 
 <div class="card">
 <h3>Reclutamiento estratégico</h3>
-<p>Selección ágil basada en competencias y ajuste cultural.</p>
+<p>Selección por competencias y matching cultural.</p>
 </div>
 
 <div class="card">
 <h3>Formación express</h3>
-<p>Microformaciones que preparan al talento antes de trabajar.</p>
+<p>Microformaciones para preparar talento antes de trabajar.</p>
 </div>
 
 <div class="card">
-<h3>Evaluación</h3>
-<p>Medicion de desempeño real del trabajador.</p>
+<h3>Evaluación 360º</h3>
+<p>Medición del desempeño real tras cada servicio.</p>
 </div>
 
 <div class="card">
-<h3>Desarrollo</h3>
-<p>Fidelización y progresión del talento joven.</p>
+<h3>Desarrollo y fidelización</h3>
+<p>Planes de crecimiento y progresión profesional.</p>
 </div>
 
 </div>
 </section>
 
-<section>
-<div class="banner"></div>
+<!-- COMO FUNCIONA -->
+<section id="como">
+<h2>Cómo funciona</h2>
+<div class="cards">
+
+<div class="card">1. Registro en plataforma</div>
+<div class="card">2. Evaluación por competencias</div>
+<div class="card">3. Matching con empresas</div>
+<div class="card">4. Formación previa</div>
+<div class="card">5. Trabajo + evaluación</div>
+
+</div>
 </section>
 
-<section id="equipo">
-<h2>Equipo</h2>
-<p style="text-align:center;">
-Ariana Rojas · Aitana Piñón · Sofía Montero · Ana Sebastià
-</p>
-<img src="equipo.jpg.png" style="width:100%; border-radius:12px;">
+<!-- IMPACTO -->
+<section id="impacto">
+<h2>Impacto</h2>
+
+<div class="kpis">
+<div>+85%<br><span style="font-size:14px;">éxito selección</span></div>
+<div>< 5 días<br><span style="font-size:14px;">tiempo cobertura</span></div>
+<div>+60%<br><span style="font-size:14px;">talento recurrente</span></div>
+</div>
+
 </section>
 
+<!-- CTA -->
 <div class="cta">
-<h2>¿Necesitas personal o buscas trabajo?</h2>
+<h2>¿Buscas talento o quieres trabajar con nosotros?</h2>
 <a href="mailto:tuemail@gmail.com" class="btn">Contactar</a>
 </div>
 
+<!-- CONTACTO -->
 <section id="contacto">
 <h2>Contacto</h2>
 <p style="text-align:center;">
@@ -234,7 +238,7 @@ Ariana Rojas · Aitana Piñón · Sofía Montero · Ana Sebastià
 </section>
 
 <footer>
-© 2026 4Humans Consulting
+© 2026 4Humans Consulting · Todos los derechos reservados
 </footer>
 
 </body>
