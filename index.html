@@ -1170,3 +1170,120 @@ function fakeSubmit() {
 
 </body>
 </html>
+<section class="valores-grid">
+
+  <div class="valor-card">
+    <div class="imagen">
+      <img src="img/enfoque-humano.png" alt="">
+      <h3>Enfoque humano</h3>
+    </div>
+    <p>Situamos a las personas en el centro, comprendiendo tanto las necesidades de las empresas como las aspiraciones del talento joven.</p>
+  </div>
+
+  <div class="valor-card">
+    <div class="imagen">
+      <img src="img/empleabilidad-juvenil.png" alt="">
+      <h3>Empleabilidad juvenil</h3>
+    </div>
+    <p>Facilitamos el acceso al mercado laboral a jóvenes que necesitan experiencia, aprendizaje y oportunidades reales.</p>
+  </div>
+
+  <div class="valor-card">
+    <div class="imagen">
+      <img src="img/profesionalidad.png" alt="">
+      <h3>Profesionalidad</h3>
+    </div>
+    <p>Trabajamos con procesos claros, organizados y eficaces para ofrecer un servicio de calidad.</p>
+  </div>
+
+  <div class="valor-card">
+    <div class="imagen">
+      <img src="img/agilidad-adaptabilidad.png" alt="">
+      <h3>Agilidad y adaptabilidad</h3>
+    </div>
+    <p>Respondemos con rapidez a necesidades cambiantes en sectores donde la flexibilidad es esencial.</p>
+  </div>
+
+  <div class="valor-card">
+    <div class="imagen">
+      <img src="img/transparencia-confianza.png" alt="">
+      <h3>Transparencia y confianza</h3>
+    </div>
+    <p>Promovemos relaciones honestas, claras y profesionales con empresas y candidatos.</p>
+  </div>
+
+  <div class="valor-card">
+    <div class="imagen">
+      <img src="img/impacto-medible.png" alt="">
+      <h3>Impacto medible</h3>
+    </div>
+    <p>Medimos resultados a través de KPIs para mejorar continuamente selección, formación y desempeño.</p>
+  </div>
+
+</section>
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  padding: 60px 5%;
+  background: #eef4f8;
+}
+
+.valor-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.imagen {
+  position: relative;
+}
+
+.imagen img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* overlay oscuro elegante */
+.imagen::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+/* título sobre la imagen */
+.imagen h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.valor-card p {
+  padding: 20px 22px 28px;
+  font-size: 16px;
+  color: #52657d;
+  line-height: 1.6;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .valores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .valores-grid {
+    grid-template-columns: 1fr;
+  }
+}
