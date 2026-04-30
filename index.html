@@ -2,126 +2,464 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>4Humans Consulting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 HUMANS Consulting</title>
 
 <style>
+:root {
+  --navy: #071f3a;
+  --blue: #0a3d62;
+  --midblue: #0077b6;
+  --cyan: #00a8cc;
+  --light: #f4f8fb;
+  --white: #ffffff;
+  --text: #1f2d3d;
+  --muted: #5f6f7f;
+  --shadow: 0 15px 35px rgba(7,31,58,0.12);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Arial;
-  background: #f5f9fc;
-  color: #1f2d3d;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--light);
+  color: var(--text);
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+p {
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+ul {
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+strong {
+  color: var(--navy);
 }
 
 /* NAV */
 nav {
-  background: #0a2540;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(7,31,58,0.97);
   color: white;
-  padding: 15px 25px;
+  padding: 16px 32px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.brand span {
+  color: white;
+  font-size: 20px;
 }
 
 .menu-btn {
-  font-size: 28px;
+  font-size: 32px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+
+/* MENÚ HAMBURGUESA */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background: linear-gradient(180deg, var(--navy), var(--blue));
+  z-index: 2000;
+  transition: right 0.35s ease;
+  padding: 80px 28px 30px;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  font-size: 30px;
+  color: white;
   cursor: pointer;
 }
 
-/* MENÚ */
-.menu {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  width: 260px;
-  height: 100%;
-  background: #0a2540;
-  transition: 0.4s;
-  padding-top: 60px;
-}
-
-.menu a {
+.side-menu a {
   display: block;
-  padding: 18px;
+  padding: 16px 12px;
+  margin: 6px 0;
   color: white;
   text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.25s;
 }
 
-.menu a:hover {
-  background: #0077b6;
+.side-menu a:hover {
+  background: rgba(255,255,255,0.14);
+  transform: translateX(4px);
 }
 
 /* PÁGINAS */
 .page {
   display: none;
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
-  animation: fade 0.5s;
+  animation: fadeIn 0.45s ease;
 }
 
-.active { display: block; }
+.page.active {
+  display: block;
+}
 
-@keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
 .hero {
-  height: 90vh;
-  background: linear-gradient(rgba(10,37,64,0.8), rgba(0,119,182,0.7)),
-              url('hero.jpg') center/cover;
-  color: white;
+  min-height: 92vh;
+  background:
+    linear-gradient(120deg, rgba(7,31,58,0.92), rgba(0,119,182,0.70)),
+    url("hero.jpg") center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 80px 24px;
+  color: white;
   text-align: center;
 }
 
-/* BOTONES */
-.btn {
-  background: #00a8cc;
-  padding: 12px 25px;
+.hero-content {
+  max-width: 950px;
+}
+
+.hero h1 {
   color: white;
-  border-radius: 8px;
-  text-decoration: none;
+  font-size: clamp(42px, 7vw, 78px);
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  color: #e9f6ff;
+  font-size: clamp(18px, 2.3vw, 26px);
+  max-width: 780px;
+  margin: 0 auto 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn {
   display: inline-block;
-  margin-top: 15px;
+  padding: 15px 28px;
+  background: var(--cyan);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 12px 25px rgba(0,168,204,0.25);
 }
 
 .btn:hover {
-  background: #0077b6;
+  background: var(--midblue);
+  transform: translateY(-3px);
 }
 
-/* IMÁGENES SECCIÓN */
-.section-img {
-  width: 100%;
-  border-radius: 12px;
-  margin-top: 25px;
+.btn.secondary {
+  background: white;
+  color: var(--navy);
 }
 
-/* CARDS */
-.cards {
+/* CONTENEDORES */
+.container {
+  width: min(1150px, 92%);
+  margin: auto;
+  padding: 70px 0;
+}
+
+.banner {
+  min-height: 280px;
+  background:
+    linear-gradient(120deg, rgba(7,31,58,0.86), rgba(0,119,182,0.58)),
+    var(--img) center/cover;
+  border-radius: var(--radius);
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  align-items: end;
+  padding: 42px;
+  box-shadow: var(--shadow);
+  margin-bottom: 36px;
+}
+
+.banner h2 {
+  color: white;
+  font-size: clamp(32px, 5vw, 54px);
+  margin: 0;
+}
+
+.intro {
+  background: white;
+  padding: 34px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .card {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;
-  min-width: 200px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(7,31,58,0.06);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: #e6f7fb;
+  color: var(--blue);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+/* DIAGRAMAS */
+.process {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.step {
+  background: linear-gradient(180deg, white, #eef8fc);
+  padding: 24px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.step-number {
+  width: 44px;
+  height: 44px;
+  background: var(--midblue);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  margin: 0 auto 14px;
+}
+
+/* KPIs */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.kpi {
+  background: white;
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.kpi .number {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--midblue);
+  margin-bottom: 8px;
+}
+
+.bar {
+  height: 12px;
+  background: #d9ecf5;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--midblue), var(--cyan));
+  border-radius: 999px;
+}
+
+/* EQUIPO */
+.team-card {
+  text-align: center;
+}
+
+.role {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--midblue);
+  margin-bottom: 10px;
+}
+
+/* PRECIOS */
+.price {
+  border-top: 5px solid var(--midblue);
+}
+
+.price .amount {
+  font-size: 28px;
+  color: var(--navy);
+  font-weight: 900;
+}
+
+/* FORMULARIOS */
+.form-switch {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.form-box {
+  display: none;
+  background: white;
+  padding: 34px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.form-box.active {
+  display: block;
+}
+
+label {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #c8d8e4;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.notice {
+  background: #eaf7fb;
+  padding: 18px;
+  border-left: 5px solid var(--cyan);
+  border-radius: 12px;
+  color: var(--blue);
+  margin-top: 18px;
 }
 
 /* FOOTER */
 footer {
-  background: #0a2540;
+  background: var(--navy);
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 32px;
+}
+
+footer p {
+  color: #cfe8f3;
+  margin: 6px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .grid-2, .grid-3, .grid-4, .process, .kpi-grid, .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    min-height: 220px;
+    padding: 28px;
+  }
+
+  .side-menu {
+    width: 280px;
+  }
 }
 </style>
 </head>
@@ -129,94 +467,704 @@ footer {
 <body>
 
 <nav>
-  <strong>4Humans</strong>
+  <div class="brand">
+    <img src="logo.png" alt="Logo 4 HUMANS">
+    <span>4 HUMANS</span>
+  </div>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </nav>
 
-<div class="menu" id="menu">
+<div class="side-menu" id="sideMenu">
+  <div class="close-btn" onclick="toggleMenu()">×</div>
   <a onclick="showPage('home')">Inicio</a>
   <a onclick="showPage('quienes')">Quiénes somos</a>
-  <a onclick="showPage('modelo')">Modelo</a>
+  <a onclick="showPage('modelo')">Modelo y valores</a>
   <a onclick="showPage('servicios')">Servicios</a>
-  <a onclick="showPage('impacto')">Impacto</a>
+  <a onclick="showPage('metodologia')">Cómo funciona</a>
+  <a onclick="showPage('impacto')">Impacto y KPIs</a>
+  <a onclick="showPage('precios')">Precios</a>
+  <a onclick="showPage('equipo')">Equipo</a>
   <a onclick="showPage('contacto')">Contacto</a>
 </div>
 
-<!-- HOME -->
-<div id="home" class="page active">
+<!-- INICIO -->
+<section id="home" class="page active">
   <div class="hero">
-    <div>
-      <h1>4Humans Consulting</h1>
-      <p>Conectamos talento joven con oportunidades reales</p>
-      <a onclick="showPage('contacto')" class="btn">Contactar</a>
+    <div class="hero-content">
+      <h1>4 HUMANS Consulting</h1>
+      <p>Conectamos talento joven con oportunidades laborales reales y ayudamos a las empresas a encontrar equipos ágiles, formados y comprometidos.</p>
+      <div class="hero-buttons">
+        <button class="btn" onclick="showPage('contacto'); showForm('empresa')">Soy empresa</button>
+        <button class="btn secondary" onclick="showPage('contacto'); showForm('candidato')">Soy candidato</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- QUIENES -->
-<div id="quienes" class="page">
-  <h2>Quiénes somos</h2>
-  <p>
-    Somos una consultora que conecta talento joven con empresas,
-    creando un ecosistema de empleabilidad basado en formación, evaluación y desarrollo.
-  </p>
-  <img src="quienes.jpg" class="section-img">
-</div>
-
-<!-- MODELO -->
-<div id="modelo" class="page">
-  <h2>Modelo de gestión</h2>
-  <div class="cards">
-    <div class="card">Enfoque humano</div>
-    <div class="card">Talento joven</div>
-    <div class="card">Procesos digitales</div>
-    <div class="card">Adaptabilidad</div>
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="badge">Talento joven</span>
+        <h3>Oportunidades reales</h3>
+        <p>Facilitamos el acceso al empleo a jóvenes que buscan experiencias flexibles, aprendizaje y desarrollo profesional.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Empresas</span>
+        <h3>Personal preparado</h3>
+        <p>Ayudamos a cubrir necesidades de personal en sectores dinámicos como hostelería, eventos, agencias, ferias y congresos.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Sistema integral</span>
+        <h3>Más que selección</h3>
+        <p>Integramos reclutamiento, formación, evaluación, matching y desarrollo para crear relaciones laborales sostenibles.</p>
+      </div>
+    </div>
   </div>
-  <img src="modelo.jpg" class="section-img">
-</div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section id="quienes" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('quienes.jpg');">
+      <h2>Quiénes somos</h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        4 HUMANS es una consultora de recursos humanos especializada en talento joven. Nace como un ecosistema digital de empleabilidad que conecta personas, empresas y oportunidades, especialmente en sectores con alta demanda, alta rotación y necesidad de respuesta rápida.
+      </p>
+      <p>
+        Nuestro nombre refleja nuestra identidad: somos cuatro personas comprometidas con el talento humano. Además, el “4” juega con la pronunciación inglesa “four”, que suena como “for”, transmitiendo una idea esencial: trabajamos por y para las personas.
+      </p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Misión</h3>
+        <p>
+          Actuar como nexo entre el talento joven y las oportunidades laborales reales, conectando a personas que buscan empleo flexible con empresas que necesitan equipos ágiles, formados y comprometidos, mediante procesos de selección humanos, digitales y eficientes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Visión</h3>
+        <p>
+          Convertirnos en una consultora referente en talento joven, impulsando la empleabilidad y la profesionalización de sectores dinámicos y de servicios.
+        </p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h3>Propuesta de valor</h3>
+      <p>
+        4 HUMANS no se limita a cubrir vacantes. Diseña relaciones laborales sostenibles, eficientes y con impacto a largo plazo. Nuestra propuesta combina selección estratégica, formación express, evaluación continua y desarrollo profesional para mejorar el ajuste entre empresa y candidato, reducir la rotación y elevar la calidad del servicio.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- MODELO Y VALORES -->
+<section id="modelo" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('modelo.jpg');">
+      <h2>Modelo y valores</h2>
+    </div>
+
+    <div class="intro">
+      <h3>Modelo de gestión</h3>
+      <p>
+        4 HUMANS adopta un modelo de gestión de personas centrado en el talento joven, basado en un enfoque humano, digital y orientado al desarrollo. Actuamos como un sistema integral que conecta selección, formación, evaluación y fidelización.
+      </p>
+      <p>
+        Nuestra estrategia es analizadora: combinamos eficiencia operativa con capacidad de adaptación a contextos cambiantes, especialmente en hostelería, eventos, agencias, seguridad, control de accesos, ferias, congresos y servicios de atención al público.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Enfoque humano</h3>
+        <p>Situamos a las personas en el centro, comprendiendo tanto las necesidades de las empresas como las aspiraciones del talento joven.</p>
+      </div>
+      <div class="card">
+        <h3>Empleabilidad juvenil</h3>
+        <p>Facilitamos el acceso al mercado laboral a jóvenes que necesitan experiencia, aprendizaje y oportunidades reales.</p>
+      </div>
+      <div class="card">
+        <h3>Profesionalidad</h3>
+        <p>Trabajamos con procesos claros, organizados y eficaces para ofrecer un servicio de calidad.</p>
+      </div>
+      <div class="card">
+        <h3>Agilidad y adaptabilidad</h3>
+        <p>Respondemos con rapidez a necesidades cambiantes en sectores donde la flexibilidad es esencial.</p>
+      </div>
+      <div class="card">
+        <h3>Transparencia y confianza</h3>
+        <p>Promovemos relaciones honestas, claras y profesionales con empresas y candidatos.</p>
+      </div>
+      <div class="card">
+        <h3>Impacto medible</h3>
+        <p>Medimos resultados a través de KPIs para mejorar continuamente selección, formación y desempeño.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICIOS -->
-<div id="servicios" class="page">
-  <h2>Servicios</h2>
-  <div class="cards">
-    <div class="card">Reclutamiento estratégico</div>
-    <div class="card">Formación express</div>
-    <div class="card">Evaluación 360º</div>
-    <div class="card">Desarrollo del talento</div>
+<section id="servicios" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('servicios.jpg');">
+      <h2>Servicios</h2>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="badge">01</span>
+        <h3>Reclutamiento estratégico</h3>
+        <p>
+          No entendemos el reclutamiento como una tarea administrativa, sino como una inversión en capital humano. Analizamos el puesto, definimos competencias clave y seleccionamos perfiles según conocimientos, habilidades y actitudes.
+        </p>
+        <ul>
+          <li>Mini-ATS para centralizar candidaturas.</li>
+          <li>Perfil competencial: saber, saber hacer y saber ser.</li>
+          <li>Entrevistas STAR para evaluar comportamientos reales.</li>
+          <li>Matriz objetiva de evaluación para reducir sesgos.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">02</span>
+        <h3>4MATCH</h3>
+        <p>
+          4MATCH es nuestra herramienta digital propia para validar el encaje entre empresa y candidato. Analiza competencias, valores, cultura y condiciones del entorno laboral para generar un índice de afinidad cultural.
+        </p>
+        <ul>
+          <li>Matching por competencias y valores.</li>
+          <li>Participación activa de empresa y candidato.</li>
+          <li>Shortlist de perfiles con mayor probabilidad de éxito.</li>
+          <li>Decisiones más objetivas y medibles.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">03</span>
+        <h3>Formación express</h3>
+        <p>
+          Diseñamos microformaciones prácticas de 20 a 40 minutos para reducir la curva de aprendizaje y preparar al talento antes de incorporarse.
+        </p>
+        <ul>
+          <li>Atención al cliente.</li>
+          <li>Gestión de conflictos.</li>
+          <li>Imagen profesional y conducta en servicio.</li>
+          <li>Trabajo en equipo.</li>
+          <li>Cultura del evento y entorno laboral.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">04</span>
+        <h3>Formación a empresas</h3>
+        <p>
+          También formamos a empresas colaboradoras para garantizar entornos laborales coherentes con nuestros valores y estándares de calidad.
+        </p>
+        <ul>
+          <li>Igualdad y diversidad.</li>
+          <li>Bienestar laboral y clima organizativo.</li>
+          <li>Gestión de equipos temporales y talento joven.</li>
+          <li>Liderazgo en entornos operativos.</li>
+          <li>Certificación interna 4 HUMANS.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">05</span>
+        <h3>Evaluación 360º ligera</h3>
+        <p>
+          Evaluamos no solo el resultado, sino también la forma de actuar. Medimos puntualidad, responsabilidad, actitud, orientación al cliente, adaptabilidad y trabajo en equipo.
+        </p>
+        <ul>
+          <li>Feedback de la empresa cliente.</li>
+          <li>Autoevaluación del joven.</li>
+          <li>Registro interno en el perfil digital.</li>
+          <li>Historial de desempeño acumulativo.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="badge">06</span>
+        <h3>Desarrollo y retención</h3>
+        <p>
+          Transformamos trabajos puntuales en trayectorias profesionales. Cada joven puede progresar según experiencia, formación y evaluaciones obtenidas.
+        </p>
+        <ul>
+          <li>Nivel 1: Junior.</li>
+          <li>Nivel 2: Operativo consolidado.</li>
+          <li>Nivel 3: Senior.</li>
+          <li>Nivel 4: Coordinador de equipo.</li>
+          <li>Acceso prioritario a eventos premium.</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <img src="servicios.jpg" class="section-img">
-</div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section id="metodologia" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('match.jpg');">
+      <h2>Cómo funciona</h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        Nuestro sistema conecta tecnología, criterio humano y acompañamiento continuo. Cada fase está diseñada para reducir errores de selección, mejorar el ajuste cultural, preparar al talento y generar información útil para futuras decisiones.
+      </p>
+    </div>
+
+    <div class="process">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Registro</h3>
+        <p>El candidato crea su perfil digital en nuestra plataforma.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Evaluación</h3>
+        <p>Analizamos competencias, actitudes y disponibilidad.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>4MATCH</h3>
+        <p>Medimos el encaje entre candidato y empresa.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Formación</h3>
+        <p>El talento completa microformaciones clave.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <h3>Seguimiento</h3>
+        <p>Evaluamos el desempeño tras cada servicio.</p>
+      </div>
+    </div>
+
+    <div class="grid grid-3" style="margin-top:30px;">
+      <div class="card">
+        <h3>Para candidatos</h3>
+        <p>Acceso a empleo flexible, formación, experiencia real, evaluación continua y progresión profesional.</p>
+      </div>
+      <div class="card">
+        <h3>Para empresas</h3>
+        <p>Personal evaluado, formado y alineado con la cultura de la organización.</p>
+      </div>
+      <div class="card">
+        <h3>Para el sistema</h3>
+        <p>Datos objetivos que permiten mejorar selección, formación, asignación y fidelización.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- IMPACTO -->
-<div id="impacto" class="page">
-  <h2>Impacto</h2>
-  <p>
-    +85% éxito en selección · <5 días cobertura · +60% talento recurrente
-  </p>
-  <img src="impacto.jpg" class="section-img">
-</div>
+<section id="impacto" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('impacto.jpg');">
+      <h2>Impacto y KPIs</h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        4 HUMANS mide su impacto con indicadores internos que permiten controlar la calidad del servicio, la eficiencia del reclutamiento, el rendimiento del talento y la satisfacción de las empresas.
+      </p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="number">&lt;5</div>
+        <strong>días de cobertura</strong>
+        <p>Tiempo desde la solicitud de la empresa hasta la incorporación.</p>
+        <div class="bar"><span style="width:90%;"></span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="number">&gt;85%</div>
+        <strong>éxito en selección</strong>
+        <p>Candidatos que superan el periodo inicial sin incidencias.</p>
+        <div class="bar"><span style="width:85%;"></span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="number">&gt;80%</div>
+        <strong>matching efectivo</strong>
+        <p>Candidatos seleccionados por 4MATCH con evaluación alta.</p>
+        <div class="bar"><span style="width:80%;"></span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="number">&gt;90%</div>
+        <strong>formación completada</strong>
+        <p>Candidatos que finalizan las microformaciones.</p>
+        <div class="bar"><span style="width:90%;"></span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="number">&gt;4/5</div>
+        <strong>desempeño medio</strong>
+        <p>Media global de evaluaciones tras cada servicio.</p>
+        <div class="bar"><span style="width:82%;"></span></div>
+      </div>
+
+      <div class="kpi">
+        <div class="number">&gt;70%</div>
+        <strong>fidelización empresas</strong>
+        <p>Empresas que vuelven a trabajar con 4 HUMANS.</p>
+        <div class="bar"><span style="width:70%;"></span></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:30px;">
+      <h3>Impacto estratégico</h3>
+      <p>
+        Este sistema permite reducir malas contrataciones, disminuir la rotación, mejorar el ajuste cultural, optimizar costes y profesionalizar sectores donde tradicionalmente la gestión de personas ha sido rápida, informal o poco estructurada.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('formacion.jpg');">
+      <h2>Modelo de precios</h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        Nuestro modelo de precios está diseñado para que las empresas financien el servicio principal, manteniendo la accesibilidad para el talento joven. No cobramos a los candidatos por acceder a oportunidades básicas, porque nuestro objetivo es impulsar su empleabilidad.
+      </p>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card price">
+        <h3>Reclutamiento y selección</h3>
+        <p class="amount">15–25 €</p>
+        <p>Por trabajador operativo y servicio.</p>
+        <p class="amount">30–50 €</p>
+        <p>Por coordinador o perfil de mayor responsabilidad.</p>
+      </div>
+
+      <div class="card price">
+        <h3>4MATCH</h3>
+        <p class="amount">40 €/mes</p>
+        <p>Acceso básico para empresas.</p>
+        <p class="amount">90 €/mes</p>
+        <p>Acceso completo con funcionalidades ampliadas.</p>
+      </div>
+
+      <div class="card price">
+        <h3>Formación empresas</h3>
+        <p class="amount">150–300 €</p>
+        <p>Sesión individual.</p>
+        <p class="amount">500–900 €</p>
+        <p>Programa completo de varios módulos.</p>
+      </div>
+
+      <div class="card price">
+        <h3>Certificación 4 HUMANS</h3>
+        <p class="amount">300–600 €</p>
+        <p>Validación de estándares de calidad en gestión de personas.</p>
+      </div>
+
+      <div class="card price">
+        <h3>Evaluación y seguimiento</h3>
+        <p class="amount">2–5 €</p>
+        <p>Por trabajador evaluado.</p>
+        <p class="amount">50–150 €/mes</p>
+        <p>Informe mensual para empresas.</p>
+      </div>
+
+      <div class="card price">
+        <h3>Pack 4 HUMANS PRO</h3>
+        <p class="amount">500–1.500 €/mes</p>
+        <p>Incluye selección, 4MATCH, evaluación, formación básica y soporte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('equipo.jpg');">
+      <h2>Equipo</h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        Nuestro equipo está formado por cuatro perfiles complementarios que representan las áreas clave de la consultora: dirección, selección, formación y relación con empresas.
+      </p>
+    </div>
+
+    <div class="grid grid-4">
+      <div class="card team-card">
+        <h3>Ana Sebastià</h3>
+        <div class="role">Dirección y coordinación</div>
+        <p>Definición estratégica, coordinación del equipo, supervisión de servicios y relación institucional.</p>
+      </div>
+
+      <div class="card team-card">
+        <h3>Ariana Rojas</h3>
+        <div class="role">Selección y talento joven</div>
+        <p>Reclutamiento, evaluación de perfiles, seguimiento de jóvenes y gestión de base de datos.</p>
+      </div>
+
+      <div class="card team-card">
+        <h3>Aitana Piñón</h3>
+        <div class="role">Formación y empleabilidad</div>
+        <p>Diseño de microformaciones, mejora de empleabilidad, acompañamiento inicial y evaluación de competencias.</p>
+      </div>
+
+      <div class="card team-card">
+        <h3>Sofía Montero</h3>
+        <div class="role">Empresas y comunicación</div>
+        <p>Captación de empresas colaboradoras, relación con clientes, comunicación externa y posicionamiento de marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACTO -->
-<div id="contacto" class="page">
-  <h2>Contacto</h2>
-  <p>📩 tuemail@gmail.com</p>
-  <img src="contacto.jpg" class="section-img">
-</div>
+<section id="contacto" class="page">
+  <div class="container">
+    <div class="banner" style="--img: url('contacto.jpg');">
+      <h2>Contacta con 4 HUMANS</h2>
+    </div>
+
+    <div class="intro">
+      <p>
+        Selecciona tu perfil y completa el formulario correspondiente. La información nos permitirá entender tus necesidades y ofrecerte una respuesta adaptada.
+      </p>
+    </div>
+
+    <div class="form-switch">
+      <button class="btn" onclick="showForm('empresa')">Soy empresa</button>
+      <button class="btn secondary" onclick="showForm('candidato')">Soy candidato</button>
+    </div>
+
+    <!-- FORMULARIO EMPRESA -->
+    <div id="empresaForm" class="form-box active">
+      <h3>Formulario para empresas</h3>
+      <p>Indicado para empresas que necesitan personal, formación, evaluación o acceso a 4MATCH.</p>
+
+      <form>
+        <div class="form-grid">
+          <div>
+            <label>Nombre de la empresa</label>
+            <input type="text" placeholder="Ej. Eventos Mediterráneo">
+          </div>
+
+          <div>
+            <label>Sector</label>
+            <select>
+              <option>Hostelería</option>
+              <option>Eventos</option>
+              <option>Agencia de eventos</option>
+              <option>Seguridad / control de accesos</option>
+              <option>Ferias, congresos o festivales</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Persona de contacto</label>
+            <input type="text" placeholder="Nombre y apellidos">
+          </div>
+
+          <div>
+            <label>Email corporativo</label>
+            <input type="email" placeholder="empresa@email.com">
+          </div>
+
+          <div>
+            <label>Teléfono</label>
+            <input type="tel" placeholder="+34 600 000 000">
+          </div>
+
+          <div>
+            <label>Servicio solicitado</label>
+            <select>
+              <option>Reclutamiento y selección</option>
+              <option>Acceso a 4MATCH</option>
+              <option>Formación a empresas</option>
+              <option>Evaluación y seguimiento</option>
+              <option>Pack 4 HUMANS PRO</option>
+              <option>Certificación 4 HUMANS</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Número aproximado de trabajadores necesarios</label>
+            <input type="number" placeholder="Ej. 10">
+          </div>
+
+          <div>
+            <label>Fecha estimada del servicio</label>
+            <input type="date">
+          </div>
+        </div>
+
+        <label>Descripción de la necesidad</label>
+        <textarea placeholder="Explica el tipo de perfiles que necesitáis, horarios, funciones, competencias clave, condiciones y cualquier información relevante."></textarea>
+
+        <label>Prioridad</label>
+        <select>
+          <option>Urgente: menos de 5 días</option>
+          <option>Próximas 2 semanas</option>
+          <option>Próximo mes</option>
+          <option>Necesidad recurrente</option>
+        </select>
+
+        <button type="button" class="btn" onclick="fakeSubmit()">Enviar solicitud de empresa</button>
+
+        <div class="notice">
+          Al enviar este formulario, 4 HUMANS podrá analizar el puesto, definir competencias clave y proponerte perfiles alineados con tus necesidades.
+        </div>
+      </form>
+    </div>
+
+    <!-- FORMULARIO CANDIDATO -->
+    <div id="candidatoForm" class="form-box">
+      <h3>Formulario para candidatos</h3>
+      <p>Indicado para jóvenes que buscan oportunidades laborales flexibles, formación y desarrollo profesional.</p>
+
+      <form>
+        <div class="form-grid">
+          <div>
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Nombre y apellidos">
+          </div>
+
+          <div>
+            <label>Email</label>
+            <input type="email" placeholder="tuemail@email.com">
+          </div>
+
+          <div>
+            <label>Teléfono</label>
+            <input type="tel" placeholder="+34 600 000 000">
+          </div>
+
+          <div>
+            <label>Edad</label>
+            <input type="number" placeholder="Ej. 21">
+          </div>
+
+          <div>
+            <label>Ciudad</label>
+            <input type="text" placeholder="Ej. Valencia">
+          </div>
+
+          <div>
+            <label>Disponibilidad</label>
+            <select>
+              <option>Fines de semana</option>
+              <option>Entre semana</option>
+              <option>Tardes</option>
+              <option>Mañanas</option>
+              <option>Disponibilidad completa</option>
+              <option>Solo eventos puntuales</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Sector de interés</label>
+            <select>
+              <option>Hostelería</option>
+              <option>Eventos</option>
+              <option>Azafato/a</option>
+              <option>Control de accesos</option>
+              <option>Ferias y congresos</option>
+              <option>Atención al cliente</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Experiencia previa</label>
+            <select>
+              <option>No tengo experiencia previa</option>
+              <option>Menos de 6 meses</option>
+              <option>Entre 6 meses y 1 año</option>
+              <option>Más de 1 año</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Competencias que mejor te describen</label>
+        <textarea placeholder="Ej. Trabajo en equipo, puntualidad, comunicación, adaptabilidad, orientación al cliente..."></textarea>
+
+        <label>Formación que te interesaría recibir</label>
+        <select>
+          <option>Atención al cliente</option>
+          <option>Gestión de conflictos</option>
+          <option>Imagen profesional y conducta en servicio</option>
+          <option>Trabajo en equipo</option>
+          <option>Cultura del evento / entorno laboral</option>
+          <option>Todas las anteriores</option>
+        </select>
+
+        <label>Cuéntanos qué tipo de oportunidades buscas</label>
+        <textarea placeholder="Explica tu disponibilidad, preferencias, objetivos y qué esperas conseguir trabajando con 4 HUMANS."></textarea>
+
+        <button type="button" class="btn" onclick="fakeSubmit()">Enviar candidatura</button>
+
+        <div class="notice">
+          Al enviar este formulario, tu perfil podrá ser evaluado por competencias y entrar en nuestro sistema de oportunidades, formación y desarrollo.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
 <footer>
-© 2026 4Humans Consulting
+  <p><strong style="color:white;">4 HUMANS Consulting</strong></p>
+  <p>Talento joven, empresas ágiles y relaciones laborales sostenibles.</p>
+  <p>© 2026 4 HUMANS Consulting · Todos los derechos reservados</p>
 </footer>
 
 <script>
 function toggleMenu() {
-  let menu = document.getElementById("menu");
-  menu.style.right = menu.style.right === "0px" ? "-260px" : "0px";
+  document.getElementById("sideMenu").classList.toggle("open");
 }
 
 function showPage(id) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
   document.getElementById(id).classList.add("active");
-  document.getElementById("menu").style.right = "-260px";
+  document.getElementById("sideMenu").classList.remove("open");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function showForm(type) {
+  const empresa = document.getElementById("empresaForm");
+  const candidato = document.getElementById("candidatoForm");
+
+  if (type === "empresa") {
+    empresa.classList.add("active");
+    candidato.classList.remove("active");
+  } else {
+    candidato.classList.add("active");
+    empresa.classList.remove("active");
+  }
+
+  setTimeout(() => {
+    const target = type === "empresa" ? empresa : candidato;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, 200);
+}
+
+function fakeSubmit() {
+  alert("Formulario enviado correctamente. Gracias por contactar con 4 HUMANS.");
 }
 </script>
 
