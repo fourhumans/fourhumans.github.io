@@ -36,13 +36,8 @@ h1, h2, h3, h4 {
   color: var(--navy);
 }
 
-p {
+p, li {
   line-height: 1.7;
-  color: var(--muted);
-}
-
-ul {
-  line-height: 1.8;
   color: var(--muted);
 }
 
@@ -91,7 +86,7 @@ nav {
   color: white;
 }
 
-/* MENÚ HAMBURGUESA */
+/* MENÚ */
 .side-menu {
   position: fixed;
   top: 0;
@@ -127,6 +122,7 @@ nav {
   border-radius: 12px;
   font-weight: 600;
   transition: 0.25s;
+  cursor: pointer;
 }
 
 .side-menu a:hover {
@@ -286,6 +282,19 @@ nav {
   margin-bottom: 12px;
 }
 
+/* VALORES CON IMAGEN */
+.valor-card {
+  overflow: hidden;
+}
+
+.value-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
 /* DIAGRAMAS */
 .process {
   display: grid;
@@ -357,11 +366,26 @@ nav {
   text-align: center;
 }
 
+.team-photo {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
 .role {
   font-size: 14px;
   font-weight: 800;
   color: var(--midblue);
   margin-bottom: 10px;
+}
+
+.org-img {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 34px;
+  box-shadow: var(--shadow);
 }
 
 /* PRECIOS */
@@ -468,7 +492,7 @@ footer p {
 
 <nav>
   <div class="brand">
-    <img src="logo.png" alt="Logo 4 HUMANS">
+    <img src="ICONO RRHH.png" alt="Logo 4 HUMANS">
     <span>4 HUMANS</span>
   </div>
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -507,11 +531,13 @@ footer p {
         <h3>Oportunidades reales</h3>
         <p>Facilitamos el acceso al empleo a jóvenes que buscan experiencias flexibles, aprendizaje y desarrollo profesional.</p>
       </div>
+
       <div class="card">
         <span class="badge">Empresas</span>
         <h3>Personal preparado</h3>
         <p>Ayudamos a cubrir necesidades de personal en sectores dinámicos como hostelería, eventos, agencias, ferias y congresos.</p>
       </div>
+
       <div class="card">
         <span class="badge">Sistema integral</span>
         <h3>Más que selección</h3>
@@ -529,35 +555,25 @@ footer p {
     </div>
 
     <div class="intro">
-      <p>
-        4 HUMANS es una consultora de recursos humanos especializada en talento joven. Nace como un ecosistema digital de empleabilidad que conecta personas, empresas y oportunidades, especialmente en sectores con alta demanda, alta rotación y necesidad de respuesta rápida.
-      </p>
-      <p>
-        Nuestro nombre refleja nuestra identidad: somos cuatro personas comprometidas con el talento humano. Además, el “4” juega con la pronunciación inglesa “four”, que suena como “for”, transmitiendo una idea esencial: trabajamos por y para las personas.
-      </p>
+      <p>4 HUMANS es una consultora de recursos humanos especializada en talento joven. Nace como un ecosistema digital de empleabilidad que conecta personas, empresas y oportunidades, especialmente en sectores con alta demanda, alta rotación y necesidad de respuesta rápida.</p>
+      <p>Nuestro nombre refleja nuestra identidad: somos cuatro personas comprometidas con el talento humano. Además, el “4” juega con la pronunciación inglesa “four”, que suena como “for”, transmitiendo una idea esencial: trabajamos por y para las personas.</p>
     </div>
 
     <div class="grid grid-2">
       <div class="card">
         <h3>Misión</h3>
-        <p>
-          Actuar como nexo entre el talento joven y las oportunidades laborales reales, conectando a personas que buscan empleo flexible con empresas que necesitan equipos ágiles, formados y comprometidos, mediante procesos de selección humanos, digitales y eficientes.
-        </p>
+        <p>Actuar como nexo entre el talento joven y las oportunidades laborales reales, conectando a personas que buscan empleo flexible con empresas que necesitan equipos ágiles, formados y comprometidos, mediante procesos de selección humanos, digitales y eficientes.</p>
       </div>
 
       <div class="card">
         <h3>Visión</h3>
-        <p>
-          Convertirnos en una consultora referente en talento joven, impulsando la empleabilidad y la profesionalización de sectores dinámicos y de servicios.
-        </p>
+        <p>Convertirnos en una consultora referente en talento joven, impulsando la empleabilidad y la profesionalización de sectores dinámicos y de servicios.</p>
       </div>
     </div>
 
     <div class="card" style="margin-top:24px;">
       <h3>Propuesta de valor</h3>
-      <p>
-        4 HUMANS no se limita a cubrir vacantes. Diseña relaciones laborales sostenibles, eficientes y con impacto a largo plazo. Nuestra propuesta combina selección estratégica, formación express, evaluación continua y desarrollo profesional para mejorar el ajuste entre empresa y candidato, reducir la rotación y elevar la calidad del servicio.
-      </p>
+      <p>4 HUMANS no se limita a cubrir vacantes. Diseña relaciones laborales sostenibles, eficientes y con impacto a largo plazo. Nuestra propuesta combina selección estratégica, formación express, evaluación continua y desarrollo profesional para mejorar el ajuste entre empresa y candidato, reducir la rotación y elevar la calidad del servicio.</p>
     </div>
   </div>
 </section>
@@ -571,36 +587,43 @@ footer p {
 
     <div class="intro">
       <h3>Modelo de gestión</h3>
-      <p>
-        4 HUMANS adopta un modelo de gestión de personas centrado en el talento joven, basado en un enfoque humano, digital y orientado al desarrollo. Actuamos como un sistema integral que conecta selección, formación, evaluación y fidelización.
-      </p>
-      <p>
-        Nuestra estrategia es analizadora: combinamos eficiencia operativa con capacidad de adaptación a contextos cambiantes, especialmente en hostelería, eventos, agencias, seguridad, control de accesos, ferias, congresos y servicios de atención al público.
-      </p>
+      <p>4 HUMANS adopta un modelo de gestión de personas centrado en el talento joven, basado en un enfoque humano, digital y orientado al desarrollo. Actuamos como un sistema integral que conecta selección, formación, evaluación y fidelización.</p>
+      <p>Nuestra estrategia es analizadora: combinamos eficiencia operativa con capacidad de adaptación a contextos cambiantes, especialmente en hostelería, eventos, agencias, seguridad, control de accesos, ferias, congresos y servicios de atención al público.</p>
     </div>
 
     <div class="grid grid-3">
-      <div class="card">
+      <div class="card valor-card">
+        <img src="enfoque.png" class="value-img" alt="Enfoque humano">
         <h3>Enfoque humano</h3>
         <p>Situamos a las personas en el centro, comprendiendo tanto las necesidades de las empresas como las aspiraciones del talento joven.</p>
       </div>
-      <div class="card">
+
+      <div class="card valor-card">
+        <img src="empleabilidad.png" class="value-img" alt="Empleabilidad juvenil">
         <h3>Empleabilidad juvenil</h3>
         <p>Facilitamos el acceso al mercado laboral a jóvenes que necesitan experiencia, aprendizaje y oportunidades reales.</p>
       </div>
-      <div class="card">
+
+      <div class="card valor-card">
+        <img src="experiencia.png" class="value-img" alt="Profesionalidad">
         <h3>Profesionalidad</h3>
         <p>Trabajamos con procesos claros, organizados y eficaces para ofrecer un servicio de calidad.</p>
       </div>
-      <div class="card">
+
+      <div class="card valor-card">
+        <img src="agilidad.png" class="value-img" alt="Agilidad y adaptabilidad">
         <h3>Agilidad y adaptabilidad</h3>
         <p>Respondemos con rapidez a necesidades cambiantes en sectores donde la flexibilidad es esencial.</p>
       </div>
-      <div class="card">
+
+      <div class="card valor-card">
+        <img src="transparencia.png" class="value-img" alt="Transparencia y confianza">
         <h3>Transparencia y confianza</h3>
         <p>Promovemos relaciones honestas, claras y profesionales con empresas y candidatos.</p>
       </div>
-      <div class="card">
+
+      <div class="card valor-card">
+        <img src="alianzas.png" class="value-img" alt="Impacto medible">
         <h3>Impacto medible</h3>
         <p>Medimos resultados a través de KPIs para mejorar continuamente selección, formación y desempeño.</p>
       </div>
@@ -619,9 +642,7 @@ footer p {
       <div class="card">
         <span class="badge">01</span>
         <h3>Reclutamiento estratégico</h3>
-        <p>
-          No entendemos el reclutamiento como una tarea administrativa, sino como una inversión en capital humano. Analizamos el puesto, definimos competencias clave y seleccionamos perfiles según conocimientos, habilidades y actitudes.
-        </p>
+        <p>No entendemos el reclutamiento como una tarea administrativa, sino como una inversión en capital humano. Analizamos el puesto, definimos competencias clave y seleccionamos perfiles según conocimientos, habilidades y actitudes.</p>
         <ul>
           <li>Mini-ATS para centralizar candidaturas.</li>
           <li>Perfil competencial: saber, saber hacer y saber ser.</li>
@@ -633,9 +654,7 @@ footer p {
       <div class="card">
         <span class="badge">02</span>
         <h3>4MATCH</h3>
-        <p>
-          4MATCH es nuestra herramienta digital propia para validar el encaje entre empresa y candidato. Analiza competencias, valores, cultura y condiciones del entorno laboral para generar un índice de afinidad cultural.
-        </p>
+        <p>4MATCH es nuestra herramienta digital propia para validar el encaje entre empresa y candidato. Analiza competencias, valores, cultura y condiciones del entorno laboral para generar un índice de afinidad cultural.</p>
         <ul>
           <li>Matching por competencias y valores.</li>
           <li>Participación activa de empresa y candidato.</li>
@@ -647,9 +666,7 @@ footer p {
       <div class="card">
         <span class="badge">03</span>
         <h3>Formación express</h3>
-        <p>
-          Diseñamos microformaciones prácticas de 20 a 40 minutos para reducir la curva de aprendizaje y preparar al talento antes de incorporarse.
-        </p>
+        <p>Diseñamos microformaciones prácticas de 20 a 40 minutos para reducir la curva de aprendizaje y preparar al talento antes de incorporarse.</p>
         <ul>
           <li>Atención al cliente.</li>
           <li>Gestión de conflictos.</li>
@@ -662,9 +679,7 @@ footer p {
       <div class="card">
         <span class="badge">04</span>
         <h3>Formación a empresas</h3>
-        <p>
-          También formamos a empresas colaboradoras para garantizar entornos laborales coherentes con nuestros valores y estándares de calidad.
-        </p>
+        <p>También formamos a empresas colaboradoras para garantizar entornos laborales coherentes con nuestros valores y estándares de calidad.</p>
         <ul>
           <li>Igualdad y diversidad.</li>
           <li>Bienestar laboral y clima organizativo.</li>
@@ -677,9 +692,7 @@ footer p {
       <div class="card">
         <span class="badge">05</span>
         <h3>Evaluación 360º ligera</h3>
-        <p>
-          Evaluamos no solo el resultado, sino también la forma de actuar. Medimos puntualidad, responsabilidad, actitud, orientación al cliente, adaptabilidad y trabajo en equipo.
-        </p>
+        <p>Evaluamos no solo el resultado, sino también la forma de actuar. Medimos puntualidad, responsabilidad, actitud, orientación al cliente, adaptabilidad y trabajo en equipo.</p>
         <ul>
           <li>Feedback de la empresa cliente.</li>
           <li>Autoevaluación del joven.</li>
@@ -691,9 +704,7 @@ footer p {
       <div class="card">
         <span class="badge">06</span>
         <h3>Desarrollo y retención</h3>
-        <p>
-          Transformamos trabajos puntuales en trayectorias profesionales. Cada joven puede progresar según experiencia, formación y evaluaciones obtenidas.
-        </p>
+        <p>Transformamos trabajos puntuales en trayectorias profesionales. Cada joven puede progresar según experiencia, formación y evaluaciones obtenidas.</p>
         <ul>
           <li>Nivel 1: Junior.</li>
           <li>Nivel 2: Operativo consolidado.</li>
@@ -714,9 +725,7 @@ footer p {
     </div>
 
     <div class="intro">
-      <p>
-        Nuestro sistema conecta tecnología, criterio humano y acompañamiento continuo. Cada fase está diseñada para reducir errores de selección, mejorar el ajuste cultural, preparar al talento y generar información útil para futuras decisiones.
-      </p>
+      <p>Nuestro sistema conecta tecnología, criterio humano y acompañamiento continuo. Cada fase está diseñada para reducir errores de selección, mejorar el ajuste cultural, preparar al talento y generar información útil para futuras decisiones.</p>
     </div>
 
     <div class="process">
@@ -725,21 +734,25 @@ footer p {
         <h3>Registro</h3>
         <p>El candidato crea su perfil digital en nuestra plataforma.</p>
       </div>
+
       <div class="step">
         <div class="step-number">2</div>
         <h3>Evaluación</h3>
         <p>Analizamos competencias, actitudes y disponibilidad.</p>
       </div>
+
       <div class="step">
         <div class="step-number">3</div>
         <h3>4MATCH</h3>
         <p>Medimos el encaje entre candidato y empresa.</p>
       </div>
+
       <div class="step">
         <div class="step-number">4</div>
         <h3>Formación</h3>
         <p>El talento completa microformaciones clave.</p>
       </div>
+
       <div class="step">
         <div class="step-number">5</div>
         <h3>Seguimiento</h3>
@@ -752,10 +765,12 @@ footer p {
         <h3>Para candidatos</h3>
         <p>Acceso a empleo flexible, formación, experiencia real, evaluación continua y progresión profesional.</p>
       </div>
+
       <div class="card">
         <h3>Para empresas</h3>
         <p>Personal evaluado, formado y alineado con la cultura de la organización.</p>
       </div>
+
       <div class="card">
         <h3>Para el sistema</h3>
         <p>Datos objetivos que permiten mejorar selección, formación, asignación y fidelización.</p>
@@ -772,9 +787,7 @@ footer p {
     </div>
 
     <div class="intro">
-      <p>
-        4 HUMANS mide su impacto con indicadores internos que permiten controlar la calidad del servicio, la eficiencia del reclutamiento, el rendimiento del talento y la satisfacción de las empresas.
-      </p>
+      <p>4 HUMANS mide su impacto con indicadores internos que permiten controlar la calidad del servicio, la eficiencia del reclutamiento, el rendimiento del talento y la satisfacción de las empresas.</p>
     </div>
 
     <div class="kpi-grid">
@@ -823,9 +836,7 @@ footer p {
 
     <div class="card" style="margin-top:30px;">
       <h3>Impacto estratégico</h3>
-      <p>
-        Este sistema permite reducir malas contrataciones, disminuir la rotación, mejorar el ajuste cultural, optimizar costes y profesionalizar sectores donde tradicionalmente la gestión de personas ha sido rápida, informal o poco estructurada.
-      </p>
+      <p>Este sistema permite reducir malas contrataciones, disminuir la rotación, mejorar el ajuste cultural, optimizar costes y profesionalizar sectores donde tradicionalmente la gestión de personas ha sido rápida, informal o poco estructurada.</p>
     </div>
   </div>
 </section>
@@ -838,9 +849,7 @@ footer p {
     </div>
 
     <div class="intro">
-      <p>
-        Nuestro modelo de precios está diseñado para que las empresas financien el servicio principal, manteniendo la accesibilidad para el talento joven. No cobramos a los candidatos por acceder a oportunidades básicas, porque nuestro objetivo es impulsar su empleabilidad.
-      </p>
+      <p>Nuestro modelo de precios está diseñado para que las empresas financien el servicio principal, manteniendo la accesibilidad para el talento joven. No cobramos a los candidatos por acceder a oportunidades básicas, porque nuestro objetivo es impulsar su empleabilidad.</p>
     </div>
 
     <div class="grid grid-3">
@@ -899,36 +908,40 @@ footer p {
     </div>
 
     <div class="intro">
-      <p>
-        Nuestro equipo está formado por cuatro perfiles complementarios que representan las áreas clave de la consultora: dirección, selección, formación y relación con empresas.
-      </p>
+      <p>Nuestro equipo está formado por cuatro perfiles complementarios que representan las áreas clave de la consultora: dirección, selección, formación y relación con empresas.</p>
     </div>
 
     <div class="grid grid-4">
       <div class="card team-card">
+        <img src="ANA SEBASTIÀ.png" class="team-photo" alt="Ana Sebastià">
         <h3>Ana Sebastià</h3>
         <div class="role">Dirección y coordinación</div>
         <p>Definición estratégica, coordinación del equipo, supervisión de servicios y relación institucional.</p>
       </div>
 
       <div class="card team-card">
+        <img src="ARIANA ROJAS.png" class="team-photo" alt="Ariana Rojas">
         <h3>Ariana Rojas</h3>
         <div class="role">Selección y talento joven</div>
         <p>Reclutamiento, evaluación de perfiles, seguimiento de jóvenes y gestión de base de datos.</p>
       </div>
 
       <div class="card team-card">
+        <img src="AITANA PIÑÓN.png" class="team-photo" alt="Aitana Piñón">
         <h3>Aitana Piñón</h3>
         <div class="role">Formación y empleabilidad</div>
         <p>Diseño de microformaciones, mejora de empleabilidad, acompañamiento inicial y evaluación de competencias.</p>
       </div>
 
       <div class="card team-card">
+        <img src="SOFIA MONTERO.png" class="team-photo" alt="Sofía Montero">
         <h3>Sofía Montero</h3>
         <div class="role">Empresas y comunicación</div>
         <p>Captación de empresas colaboradoras, relación con clientes, comunicación externa y posicionamiento de marca.</p>
       </div>
     </div>
+
+    <img src="ORGANIGRAMA 4HUMANS (1).jpg" class="org-img" alt="Organigrama 4 HUMANS">
   </div>
 </section>
 
@@ -940,9 +953,7 @@ footer p {
     </div>
 
     <div class="intro">
-      <p>
-        Selecciona tu perfil y completa el formulario correspondiente. La información nos permitirá entender tus necesidades y ofrecerte una respuesta adaptada.
-      </p>
+      <p>Selecciona tu perfil y completa el formulario correspondiente. La información nos permitirá entender tus necesidades y ofrecerte una respuesta adaptada.</p>
     </div>
 
     <div class="form-switch">
@@ -950,7 +961,6 @@ footer p {
       <button class="btn secondary" onclick="showForm('candidato')">Soy candidato</button>
     </div>
 
-    <!-- FORMULARIO EMPRESA -->
     <div id="empresaForm" class="form-box active">
       <h3>Formulario para empresas</h3>
       <p>Indicado para empresas que necesitan personal, formación, evaluación o acceso a 4MATCH.</p>
@@ -1031,7 +1041,6 @@ footer p {
       </form>
     </div>
 
-    <!-- FORMULARIO CANDIDATO -->
     <div id="candidatoForm" class="form-box">
       <h3>Formulario para candidatos</h3>
       <p>Indicado para jóvenes que buscan oportunidades laborales flexibles, formación y desarrollo profesional.</p>
@@ -1170,120 +1179,3 @@ function fakeSubmit() {
 
 </body>
 </html>
-<section class="valores-grid">
-
-  <div class="valor-card">
-    <div class="imagen">
-      <img src="img/enfoque-humano.png" alt="">
-      <h3>Enfoque humano</h3>
-    </div>
-    <p>Situamos a las personas en el centro, comprendiendo tanto las necesidades de las empresas como las aspiraciones del talento joven.</p>
-  </div>
-
-  <div class="valor-card">
-    <div class="imagen">
-      <img src="img/empleabilidad-juvenil.png" alt="">
-      <h3>Empleabilidad juvenil</h3>
-    </div>
-    <p>Facilitamos el acceso al mercado laboral a jóvenes que necesitan experiencia, aprendizaje y oportunidades reales.</p>
-  </div>
-
-  <div class="valor-card">
-    <div class="imagen">
-      <img src="img/profesionalidad.png" alt="">
-      <h3>Profesionalidad</h3>
-    </div>
-    <p>Trabajamos con procesos claros, organizados y eficaces para ofrecer un servicio de calidad.</p>
-  </div>
-
-  <div class="valor-card">
-    <div class="imagen">
-      <img src="img/agilidad-adaptabilidad.png" alt="">
-      <h3>Agilidad y adaptabilidad</h3>
-    </div>
-    <p>Respondemos con rapidez a necesidades cambiantes en sectores donde la flexibilidad es esencial.</p>
-  </div>
-
-  <div class="valor-card">
-    <div class="imagen">
-      <img src="img/transparencia-confianza.png" alt="">
-      <h3>Transparencia y confianza</h3>
-    </div>
-    <p>Promovemos relaciones honestas, claras y profesionales con empresas y candidatos.</p>
-  </div>
-
-  <div class="valor-card">
-    <div class="imagen">
-      <img src="img/impacto-medible.png" alt="">
-      <h3>Impacto medible</h3>
-    </div>
-    <p>Medimos resultados a través de KPIs para mejorar continuamente selección, formación y desempeño.</p>
-  </div>
-
-</section>
-.valores-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  padding: 60px 5%;
-  background: #eef4f8;
-}
-
-.valor-card {
-  background: white;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.imagen {
-  position: relative;
-}
-
-.imagen img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-}
-
-/* overlay oscuro elegante */
-.imagen::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60%;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-}
-
-/* título sobre la imagen */
-.imagen h3 {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-size: 22px;
-  font-weight: 700;
-  z-index: 2;
-}
-
-.valor-card p {
-  padding: 20px 22px 28px;
-  font-size: 16px;
-  color: #52657d;
-  line-height: 1.6;
-}
-
-/* responsive */
-@media (max-width: 900px) {
-  .valores-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .valores-grid {
-    grid-template-columns: 1fr;
-  }
-}
