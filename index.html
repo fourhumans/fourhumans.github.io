@@ -85,6 +85,13 @@ nav {
   user-select: none;
   color: white;
 }
+  p, li {
+  text-align: justify;
+}
+  .certificado-box h2,
+.certificado-box p {
+  color: white;
+}
 
 /* MENÚ */
 .side-menu {
@@ -588,16 +595,7 @@ footer p {
   box-shadow: 0 0 25px rgba(0,168,204,0.6);
 }
 
-/* HERO MEJORADO */
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, transparent, rgba(0,0,0,0.5));
-  top: 0;
-  left: 0;
-}
+
 
 /* CTA FINAL */
 .cta-section {
@@ -665,11 +663,7 @@ footer p {
 <section id="home" class="page active">
   <div class="hero">
     <div class="hero-content glass fade-up">
-      <div class="trust">
-  <span>✔ Empresas reales</span>
-  <span>✔ Talento validado</span>
-  <span>✔ Resultados medibles</span>
-</div>
+      
       <h1>4 HUMANS Consulting</h1>
       <p>Conectamos talento joven con oportunidades laborales reales y ayudamos a las empresas a encontrar equipos ágiles, formados y comprometidos.</p>
       <div class="hero-buttons">
