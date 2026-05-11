@@ -489,6 +489,150 @@ footer p {
     width: 280px;
   }
 }
+/* ANIMACIONES */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HOVER CARDS */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  transition: 0.35s;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+/* ICONOS */
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* BOTONES PRO */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  top: 0;
+  left: 0;
+  transition: 0.4s;
+}
+
+.btn:hover::after {
+  width: 100%;
+}
+
+/* HERO ANIMADO */
+.hero {
+  animation: heroZoom 12s infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+
+/* CERTIFICADO */
+.certificado-box {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg,#071f3a,#0077b6);
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.certificado-box img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* 4MATCH */
+.match-highlight {
+  background: linear-gradient(135deg,#00a8cc,#0077b6);
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+ /* GLASS EFECT */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+}
+
+/* BOTÓN PREMIUM */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  box-shadow: 0 0 25px rgba(0,168,204,0.6);
+}
+
+/* HERO MEJORADO */
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent, rgba(0,0,0,0.5));
+  top: 0;
+  left: 0;
+}
+
+/* CTA FINAL */
+.cta-section {
+  background: linear-gradient(135deg,#071f3a,#0077b6);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 30px;
+  margin-top: 60px;
+}
+
+.cta-section h2 {
+  color: white;
+  font-size: 40px;
+}
+
+.cta-section p {
+  color: #dbefff;
+  font-size: 18px;
+}
+
+/* LOGOS / CONFIANZA */
+.trust {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.trust span {
+  font-weight: 800;
+  color: #0077b6;
+  font-size: 18px;
+} 
 </style>
 </head>
 
@@ -520,7 +664,12 @@ footer p {
 <!-- INICIO -->
 <section id="home" class="page active">
   <div class="hero">
-    <div class="hero-content">
+    <div class="hero-content glass fade-up">
+      <div class="trust">
+  <span>✔ Empresas reales</span>
+  <span>✔ Talento validado</span>
+  <span>✔ Resultados medibles</span>
+</div>
       <h1>4 HUMANS Consulting</h1>
       <p>Conectamos talento joven con oportunidades laborales reales y ayudamos a las empresas a encontrar equipos ágiles, formados y comprometidos.</p>
       <div class="hero-buttons">
@@ -532,19 +681,19 @@ footer p {
 
   <div class="container">
     <div class="grid grid-3">
-      <div class="card">
+     <div class="card fade-up">
         <span class="badge">Talento joven</span>
         <h3>Oportunidades reales</h3>
         <p>Facilitamos el acceso al empleo a jóvenes que buscan experiencias flexibles, aprendizaje y desarrollo profesional.</p>
       </div>
 
-      <div class="card">
+ <div class="card fade-up">
         <span class="badge">Empresas</span>
         <h3>Personal preparado</h3>
         <p>Ayudamos a cubrir necesidades de personal en sectores dinámicos como hostelería, eventos, agencias, ferias y congresos.</p>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">Sistema integral</span>
         <h3>Más que selección</h3>
         <p>Integramos reclutamiento, formación, evaluación, matching y desarrollo para crear relaciones laborales sostenibles.</p>
@@ -566,14 +715,14 @@ footer p {
     </div>
 
     <div class="grid grid-2">
-      <div class="card">
+      <div class="card fade-up">
         <h3>Misión</h3>
        <p>
 Actuar como nexo entre el talento joven y las oportunidades laborales reales, conectando a personas que buscan empleo flexible con empresas que necesitan equipos ágiles, formados y comprometidos, mediante procesos de selección humanos, digitales y eficientes, y apoyando a las organizaciones en la gestión eficaz de personas en sectores con alta demanda y rotación.
 </p>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <h3>Visión</h3>
         <p>Convertirnos en una consultora referente en talento joven, impulsando la empleabilidad y la profesionalización de sectores dinámicos y de servicios.</p>
       </div>
@@ -647,7 +796,7 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
     </div>
 
     <div class="grid grid-2">
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">01</span>
         <h3>Reclutamiento estratégico</h3>
         <p>No entendemos el reclutamiento como una tarea administrativa, sino como una inversión en capital humano. Analizamos el puesto, definimos competencias clave y seleccionamos perfiles según conocimientos, habilidades y actitudes.</p>
@@ -659,7 +808,7 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">02</span>
         <h3>4MATCH</h3>
         <p>4MATCH es nuestra herramienta digital propia para validar el encaje entre empresa y candidato. Analiza competencias, valores, cultura y condiciones del entorno laboral para generar un índice de afinidad cultural.</p>
@@ -671,7 +820,7 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">03</span>
         <h3>Formación express</h3>
         <p>Diseñamos microformaciones prácticas de 20 a 40 minutos para reducir la curva de aprendizaje y preparar al talento antes de incorporarse.</p>
@@ -684,7 +833,7 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">04</span>
         <h3>Formación a empresas</h3>
         <p>También formamos a empresas colaboradoras para garantizar entornos laborales coherentes con nuestros valores y estándares de calidad.</p>
@@ -697,7 +846,7 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">05</span>
         <h3>Evaluación 360º ligera</h3>
         <p>Evaluamos no solo el resultado, sino también la forma de actuar. Medimos puntualidad, responsabilidad, actitud, orientación al cliente, adaptabilidad y trabajo en equipo.</p>
@@ -709,7 +858,7 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
         </ul>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <span class="badge">06</span>
         <h3>Desarrollo y retención</h3>
         <p>Transformamos trabajos puntuales en trayectorias profesionales. Cada joven puede progresar según experiencia, formación y evaluaciones obtenidas.</p>
@@ -726,6 +875,13 @@ Actuar como nexo entre el talento joven y las oportunidades laborales reales, co
 </section>
   <section id="match" class="page">
   <div class="container">
+    <div class="match-highlight fade-up">
+  <h2>Inteligencia aplicada al talento</h2>
+  <p>
+    4MATCH analiza datos reales para asegurar el encaje perfecto entre persona y empresa.
+    Menos rotación, más eficiencia y mejores resultados.
+  </p>
+</div>
     <div class="banner" style="background: linear-gradient(120deg, #071f3a, #0077b6);">
   <h2>4MATCH</h2>
 </div>
@@ -746,13 +902,13 @@ sólidas, eficientes y sostenibles en el tiempo.
 </p>
 
     <div class="grid grid-2">
-      <div class="card">
+      <div class="card fade-up">
         <img src="FOR MATCH, APP.png" class="value-img">
         <h3>Plataforma digital</h3>
         <p>Gestión completa del talento y seguimiento en tiempo real.</p>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <img src="FOR MATCH, APP2.png" class="value-img">
         <h3>Versión móvil</h3>
         <p>Acceso rápido desde cualquier dispositivo.</p>
@@ -807,17 +963,17 @@ sólidas, eficientes y sostenibles en el tiempo.
     </div>
 
     <div class="grid grid-3" style="margin-top:30px;">
-      <div class="card">
+      <div class="card fade-up">
         <h3>Para candidatos</h3>
         <p>Acceso a empleo flexible, formación, experiencia real, evaluación continua y progresión profesional.</p>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <h3>Para empresas</h3>
         <p>Personal evaluado, formado y alineado con la cultura de la organización.</p>
       </div>
 
-      <div class="card">
+      <div class="card fade-up">
         <h3>Para el sistema</h3>
         <p>Datos objetivos que permiten mejorar selección, formación, asignación y fidelización.</p>
       </div>
@@ -976,9 +1132,24 @@ sólidas, eficientes y sostenibles en el tiempo.
         De este modo, la Certificación 4 HUMANS genera confianza tanto en empresas como en candidatos, reforzando la calidad del servicio y el ajuste entre ambas partes.
       </p>
     </div>
+<div class="certificado-box fade-up">
+  <h2>🏅 Certificación 4 HUMANS</h2>
 
-    <div class="card">
-      <img src="CERTIFICADO.png" class="value-img">
+  <p>
+    Este certificado reconoce a empresas que gestionan personas de forma profesional,
+    sostenible y alineada con los estándares actuales de recursos humanos.
+  </p>
+
+  <p>
+    ✔ Gestión responsable  
+    ✔ Bienestar laboral  
+    ✔ Liderazgo de calidad  
+    ✔ Talento sostenible  
+  </p>
+
+  <img src="CERTIFICADO.png">
+</div>
+   
     </div>
 
   </div>
@@ -1266,6 +1437,15 @@ function showForm(type) {
 function fakeSubmit() {
   alert("Formulario enviado correctamente. Gracias por contactar con 4 HUMANS.");
 }
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 </script>
 
 </body>
